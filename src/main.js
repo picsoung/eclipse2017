@@ -10,6 +10,9 @@ import 'vue-awesome/icons';
 import Icon from 'vue-awesome/components/Icon';
 Vue.component('icon', Icon);
 
+import VueHead from 'vue-head';
+Vue.use(VueHead);
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

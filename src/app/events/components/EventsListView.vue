@@ -18,7 +18,6 @@
         :options="{
           language: 'en_US',
           countries: ['US'],
-          useDeviceLocation: true,
           type: 'city'
         }">
         </Places>
