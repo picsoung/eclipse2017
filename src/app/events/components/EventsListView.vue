@@ -1,34 +1,5 @@
 <template>
-  <section class="hero is-primary is-fullheight" :style="{ backgroundImage: 'url(' + background.hdurl + ')' }">
-  <!-- Hero header: will stick at the top -->
-  <div class="hero-head">
-    <header class="nav">
-      <div class="container">
-        <div class="nav-left">
-          <a class="nav-item">
-            <!-- <img src="images/bulma-type-white.png" alt="Logo"> -->
-          </a>
-        </div>
-        <span class="nav-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-        <div class="nav-right nav-menu">
-          <a class="nav-item is-active">
-            Home
-          </a>
-          <a class="nav-item">
-            Examples
-          </a>
-          <a class="nav-item">
-            Documentation
-          </a>
-        </div>
-      </div>
-    </header>
-  </div>
-
+  <div>
   <!-- Hero content: will be in the middle -->
   <div class="hero-body">
     <div class="container has-text-centered">
@@ -60,36 +31,7 @@
             <div class="tile">
               <div class="tile is-parent is-vertical">
                 <article class="tile is-child box">
-                    <h3 class="title is-3 title-no-bottom">Eclipse conditions</h3>
-                    <p>
-                      <template v-if="currentAddress.type === 'city'">
-                        in: {{ currentAddress.name }}, {{ currentAddress.administrative }}
-                      </template>
-                      <template v-else>
-                        in: {{ currentAddress.name }}, {{ currentAddress.city }}, {{ currentAddress.administrative }}
-                      </template>
-                      <br />
-                      Timezone:  {{ currentAddress.tmz }}
-                    </p>
-                    <div v-if="eclipseDetails.event">
-                      <h4 class="title is-4 title-no-bottom">Details</h4>
-                      <p>
-                        {{ eclipseDetails.description }}
-                      </p>
-                      <p>
-                        Duration {{ eclipseDetails.duration }} <br />
-                        Magnitude {{ eclipseDetails.magnitude }} <br />
-                        Obscuration {{ eclipseDetails.obscuration }} <br />
-                      </p>
-                      <h4 class="title is-4 title-no-bottom">Phases</h4>
-                        <li v-for="phase, key in eclipseDetails.local_data" class="li-no-bullet">
-                          {{ phase.phenomenon }} at {{ localTime(phase.time) }}
-                        </li>
-                      <p>
-                        Maximum phase should look like this: <br/>
-                        <img v-bind:src="eclipseDetails.img" />
-                      </p>
-                    </div> <!-- end v-if -->
+                  <EclipseConditions :eclipseDetails="eclipseDetails" :currentAddress="currentAddress"></EclipseConditions>
                 </article>
               </div>
             </div>
@@ -127,23 +69,14 @@
     </div>
     </div> <!-- end columns -->
   </div> <!-- end container -->
-</div> <!-- end hero-body -->
-</div>
+  </div> <!-- end hero-body -->
   <!-- Hero footer: will stick at the bottom -->
-  <div class="hero-foot">
-      <div class="container">
-        <div class="content has-text-centered">
-          <p>Made with 🎉 in San Francisco by <a href="//twitter.com/picsoung">@picsoung</a> | 🔍 provided by <a href="//algolia.com">Algolia</a> |  🗓 and 🖼 provided by <a href="https://eclipse2017.nasa.gov/event-location">NASA</a> |  🌒 data provided by <a href="//aa.usno.navy.mil/solareclipse">USNO</a>
-        </p>
-        </div>
-      </div>
-  </div>
-</section>
+</div>
 </template>
 
 <script>
 import Places from 'vue-places';
-import moment from 'moment-timezone';
+import EclipseConditions from './EclipseConditions';
 
 import { mapActions } from 'vuex';
 export default {
@@ -153,8 +86,7 @@ export default {
       currentAddress: {},
       events: {},
       searchInfo: {},
-      eclipseDetails: {},
-      background: {}
+      eclipseDetails: {}
     };
   },
   methods: {
@@ -162,8 +94,7 @@ export default {
       'getEvents',
       'displayTimezone',
       'displayEclipseDetails',
-      'displayVisualization',
-      'getBackground'
+      'displayVisualization'
     ]),
 
     // Reset all data
@@ -174,27 +105,12 @@ export default {
       this.eclipseDetails = {};
     },
 
-    // Get background from NASA APOD API
-    changeBackground: function () {
-      return this.getBackground().then((value) => {
-        this.background = Object.assign({}, value);
-      });
-    },
-
     // Convert distance from meters to miles
     displayDistance: function (distMeters) {
       let distMiles = distMeters * 0.000621371;
       let distKm = Math.round((distMeters / 1000) * 100 + Number.EPSILON) / 100;
       let distMilesRound = Math.round(distMiles * 100 + Number.EPSILON) / 100;
       return distKm + ' km (' + distMilesRound + 'mi)';
-    },
-
-    // Convert UTC phase time to local timezone time
-    localTime: function (time) {
-      if (typeof this.currentAddress.tmz !== 'undefined') {
-        var l = moment.utc('2017-08-21T' + time); // date is not given by USNO in UTC format
-        return l.tz(this.currentAddress.tmz).format('h:mm:ss a');
-      }
     },
 
     // Get informations about eclipse from USNO API
@@ -248,29 +164,15 @@ export default {
       }
     }
   },
-  mounted: function () {
-    this.changeBackground();
-  },
   components: {
-    Places
+    Places,
+    EclipseConditions
   }
 };
 </script>
 
 <style scoped lang='scss'>
-.title-no-bottom {
-  margin-bottom: 0 !important;
-  color: black !important;
-}
-
 .li-no-bullet {
   list-style-type: none;
-}
-
-.hero.is-primary {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 }
 </style>
