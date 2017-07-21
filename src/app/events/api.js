@@ -30,7 +30,7 @@ export const getTimezone = (coordinates) => {
 };
 
 export const getEclipseDetails = (coords) => {
-  let API_URL = 'http://api.usno.navy.mil/eclipses/solar?';
+  let API_URL = 'https://8bc1hhrra2.execute-api.us-east-1.amazonaws.com/dev/usno?'; // using AWS API GATEWAY for HTTPS proxy to http://api.usno.navy.mil/eclipses/solar
   API_URL += 'date=08/21/2017&height=200&format=json';
   API_URL += '&coords=' + coords.lat + ',' + coords.lng;
 

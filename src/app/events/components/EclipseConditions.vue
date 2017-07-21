@@ -34,7 +34,7 @@
 </template>
 
 <script>
-  import Tooltip from 'vue-bulma-tooltip';
+  // import Tooltip from 'vue-bulma-tooltip';
   import moment from 'moment-timezone';
   export default {
     name: 'eclipse-conditions',
@@ -49,7 +49,7 @@
       }
     },
     components: {
-      Tooltip
+      // Tooltip
     }
   };
 </script>
