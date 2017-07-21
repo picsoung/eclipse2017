@@ -16,4 +16,9 @@ export default {
 </script>
 
 <style lang="css">
+
+.hero-foot {
+  background-color: white;
+}
+
 </style>

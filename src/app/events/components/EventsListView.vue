@@ -4,7 +4,7 @@
   <div class="hero-body">
     <div class="container has-text-centered">
       <h1 class="title">
-        Eclipse 2017 Events
+        🌚🌞🗓
       </h1>
       <h2 class="subtitle">
         Find events around you and enjoy the biggest total solar eclipse in the US.
@@ -172,7 +172,9 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-.li-no-bullet {
-  list-style-type: none;
+.title {
+  font-size: 80pt;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 </style>

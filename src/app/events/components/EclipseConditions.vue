@@ -34,6 +34,7 @@
 </template>
 
 <script>
+  import Tooltip from 'vue-bulma-tooltip';
   import moment from 'moment-timezone';
   export default {
     name: 'eclipse-conditions',
@@ -46,9 +47,15 @@
           return l.tz(this.currentAddress.tmz).format('h:mm:ss a');
         }
       }
+    },
+    components: {
+      Tooltip
     }
   };
 </script>
 
 <style lang="css">
+  .li-no-bullet {
+    list-style-type: none;
+  }
 </style>
