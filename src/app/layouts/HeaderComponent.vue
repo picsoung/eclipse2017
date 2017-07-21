@@ -29,37 +29,7 @@
 
 <script>
 export default {
-  name: 'header',
-  head: {
-    title: {
-      inner: '🌚🌞.ws'
-    },
-    // Meta tags
-    meta: [
-      { name: 'title', content: '🌚🌞.ws - Solar Eclipse Events' },
-      { name: 'description', content: 'You want to enjoy the biggest solar eclipse in the US on August 21st 2017? With 🌚🌞.ws find all the events near you.', id: 'desc' }, // id to replace intead of create element
-
-      // Twitter
-      { name: 'twitter:card', content: 'summary' },
-      { name: 'twitter:title', content: '🌚🌞.ws - Solar Eclipse Events' },
-      {name: 'twitter:description', content: 'You want to enjoy the biggest solar eclipse in the US on August 21st 2017? With 🌚🌞.ws find all the events near you.'},
-      { name: 'twitter:creator', content: '@picsoung' },
-      { name: 'twitter:image:src', content: 'https://🌚🌞.ws/static/opengraph.png' },
-
-      // Google+ / Schema.org
-      { itemprop: 'name', content: '🌚🌞.ws - Solar Eclipse Events' },
-      { itemprop: 'description', content: 'You want to enjoy the biggest solar eclipse in the US on August 21st 2017? With 🌚🌞.ws find all the events near you.' },
-
-      // Facebook / Open Graph
-      { property: 'og:title', content: '🌚🌞.ws - Solar Eclipse Events' },
-      { property: 'og:image', content: 'https://🌚🌞.ws/static/opengraph.png' },
-      { property: 'og:url', content: 'https://🌚🌞.ws' },
-      { property: 'og:site_name', content: 'Eclipse Events 2017' },
-      { property: 'og:locale', content: 'en_US' },
-      { property: 'og:description', content: 'You want to enjoy the biggest solar eclipse in the US on August 21st 2017? With 🌚🌞.ws find all the events near you.' },
-      { property: 'og:type', content: 'website' }
-    ]
-  }
+  name: 'header'
 };
 </script>
 
