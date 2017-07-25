@@ -65,7 +65,18 @@ export default {
       { property: 'og:site_name', content: 'Eclipse Events 2017' },
       { property: 'og:locale', content: 'en_US' },
       { property: 'og:description', content: 'You want to enjoy the biggest solar eclipse in the US on August 21st 2017? With 🌚🌞.ws find all the events near you.' },
-      { property: 'og:type', content: 'website' }
+      { property: 'og:type', content: 'website' },
+
+      // MStile
+      { property: 'application-name', content: '🌚🌞.ws' },
+      { property: 'msapplication-TileColor', content: '#FFFFFF' },
+      { property: 'msapplication-TileImage', content: '/static/mstile-144x144.pn' }
+    ],
+    link: [
+      { rel: 'apple-touch-icon-precomposed', sizes: '144x144', href: '/static/apple-touch-icon-144x144.png' },
+      { rel: 'apple-touch-icon-precomposed', sizes: '152x152', href: '/static/apple-touch-icon-152x152.png' },
+      { rel: 'icon', href: '/static/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
+      { rel: 'icon', href: '/static/favicon-16x16.png', type: 'image/png', sizes: '16x16' }
     ]
   },
   head: {
@@ -76,7 +87,6 @@ export default {
   }
 };
 </script>
-
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

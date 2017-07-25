@@ -15,6 +15,13 @@ Vue.component('icon', Icon);
 import Meta from 'vue-meta';
 Vue.use(Meta);
 
+import VueAnalytics from 'vue-analytics';
+
+Vue.use(VueAnalytics, {
+  id: process.env.GOOGLE_ANALYTICS_ID,
+  router
+});
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
