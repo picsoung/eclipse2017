@@ -18,8 +18,16 @@
     </p>
     <p>
       Duration {{ eclipseDetails.duration }} <br />
-      Magnitude {{ eclipseDetails.magnitude }} <br />
-      Obscuration {{ eclipseDetails.obscuration }} <br />
+      Magnitude <tooltip label="Fraction of the angular diameter of a celestial body being eclipsed. (0.0-1.0)" placement="top-right">
+                          <span class="icon">
+                            <icon name="question-circle"></icon>
+                          </span>
+                        </tooltip> {{ eclipseDetails.magnitude }} <br />
+      Obscuration <tooltip label="Fraction of the Sun’s area occulted by the Moon" placement="top-right">
+                            <span class="icon">
+                              <icon name="question-circle"></icon>
+                            </span>
+                          </tooltip> {{ eclipseDetails.obscuration }} <br />
     </p>
     <h4 class="title is-4 title-no-bottom">Phases</h4>
       <li v-for="phase, key in eclipseDetails.local_data" class="li-no-bullet">
@@ -34,7 +42,7 @@
 </template>
 
 <script>
-  // import Tooltip from 'vue-bulma-tooltip';
+  import Tooltip from 'vue-bulma-tooltip';
   import moment from 'moment-timezone';
   export default {
     name: 'eclipse-conditions',
@@ -49,7 +57,7 @@
       }
     },
     components: {
-      // Tooltip
+      Tooltip
     }
   };
 </script>

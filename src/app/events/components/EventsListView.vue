@@ -174,5 +174,6 @@ export default {
 .title {
   text-transform: uppercase;
   font-weight: bold;
+  font-size: 7rem;
 }
 </style>
