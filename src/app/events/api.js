@@ -38,6 +38,7 @@ export const getEclipseDetails = (coords) => {
     return result.data;
   }).catch(function (err) {
     console.log('Eclipse API Error', err);
+    return {};
   });
 };
 

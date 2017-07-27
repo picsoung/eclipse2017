@@ -11,7 +11,7 @@
     <br />
     Timezone:  {{ currentAddress.tmz }}
   </p>
-  <div v-if="eclipseDetails.event">
+  <div v-if="eclipseDetails.img">
     <h4 class="title is-4 title-no-bottom">Details</h4>
     <p>
       {{ eclipseDetails.description }}

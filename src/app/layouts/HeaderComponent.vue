@@ -14,7 +14,7 @@
         </span>
         <div class="nav-right nav-menu">
           <router-link :to="{ name: 'home', params: {} }" class="nav-item" exact>Home</router-link>
-          <router-link :to="{ name: 'about', params: {} }" class="nav-item" exact>About</router-link>
+          <a href="https://medium.com/@picsoung/hacking-oregon-eclipse-story-of-a-side-project-e0bf779da730" class="nav-item" exact>About</a>
           <a class="nav-item" href="https://github.com/picsoung/eclipse2017">
             <span class="icon">
               <icon name="github-alt"></icon>
