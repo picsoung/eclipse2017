@@ -18,7 +18,9 @@
         :options="{
           language: 'en_US',
           countries: ['US'],
-          type: 'city'
+          type: 'city',
+          appId: 'plCN6BSS1UB5',
+          apiKey: 'b0c2122eb198add61e6389274f8d7699'
         }">
         </Places>
       </div> <!-- end column -->
