@@ -75,6 +75,12 @@
 </div>
 </template>
 
+<style scoped>
+.ap-input {
+  -webkit-appearance: none;
+}
+</style>
+
 <script>
 import Places from 'vue-places';
 import EclipseConditions from './EclipseConditions';
